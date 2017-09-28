@@ -19,16 +19,6 @@ func CmdInit(path string) {
 		log.Fatal(err)
 	}
 
-	//decoder := base64.NewDecoder(base64.StdEncoding, bytes.NewBufferString(INIT_ZIP))
-	//b, _ := ioutil.ReadAll(decoder)
-	//
-	//z, err := zip.NewReader(bytes.NewReader(b), int64(len(b)))
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//log.Println("Unpack init content zip")
-
 	root, _ := os.Getwd()
 	SEPARATOR := string(filepath.Separator)
 	z, err := zip.OpenReader(root + SEPARATOR + "gor-content.zip")

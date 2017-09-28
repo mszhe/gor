@@ -79,7 +79,7 @@ func (*RssPlugin) Exec(topCtx mustache.Context) {
 	// FUCK!! 官方的xml库极其弱智,无法为struct指定名字
 	f.WriteString(`<?xml version="1.0"  encoding="UTF-8"?>` + "\n" + `<rss version="2.0">`)
 	str := string(data)
-	f.Write([]byte(str[len(`<rss version="2.0">`)+1 : len(str)-len("</rss>")]))
+	f.Write([]byte(str[len(`<rss version="2.0">`)+1: len(str)-len("</rss>")]))
 	f.WriteString("</rss>")
 	f.Sync()
 	return
@@ -138,11 +138,11 @@ type JekyllOff struct{}
 
 func (*JekyllOff) Exec(topCtx mustache.Context) {
 	base_path := FromCtx(topCtx, "urls.base_path").(string)
-	f, err := os.OpenFile("docs"+base_path+".nojekyll", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
+	f, err := os.OpenFile("docs"+base_path+"CNAME", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
 	if err != nil {
-		log.Println("Error when create .nojekyll", err)
+		log.Println("Error when create CNAME", err)
 		return
 	}
 	defer f.Close()
-	f.WriteString("Gor Here. http://github.com/wendal/gor")
+	f.WriteString(FromCtx(topCtx, "site.author.domain").(string))
 }

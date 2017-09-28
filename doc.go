@@ -1,35 +1,45 @@
-// Gor静态模块引擎
-package gor
+// Gor - Fastest Static Blog Engine
+package main
 
 import (
-	"encoding/json"
-	"log"
-	"os"
+	"fmt"
 )
 
 const (
-	//配置文件的标准命名
-	CONFIG_YAML = "config.yml"
-	SITE_YAML   = "site.yml"
+	HELP = `
+Run specified gor tool
+
+Usage:
+
+	gor command [args...]
+
+Init Blog layout
+
+    gor init <dir>
+
+Compile
+
+	gor compile
+
+Preview Compiled Website
+
+	gor http
+
+Print Configure
+
+	gor config
+
+Print Payload
+
+	gor payload
+
+run pprof (for dev)
+
+	gor pprof
+
+	`
 )
 
-const (
-	KEY_CONFIG = "config"
-	KEY_LAYOUT = "layout"
-)
-
-// 存在核心配置文件的路径,才可能是Gor的目录
-func IsGorDir(path string) bool {
-	_, err := os.Stat(path + "/" + CONFIG_YAML)
-	return err == nil
-}
-
-// 以Json方式打印对象,方便调试
-func PrintJson(v interface{}) {
-	buf, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		log.Println("ERR Json Marshal : " + err.Error())
-	} else {
-		log.Println(">>\n" + string(buf))
-	}
+func PrintUsage() {
+	fmt.Println(HELP)
 }

@@ -109,6 +109,8 @@ func main() {
 		} else {
 			log.Fatal("gor post <title> <dir> or <date>")
 		}
+	case "h":
+		fallthrough
 	case "http":
 		_http()
 	case "preview":
