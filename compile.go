@@ -428,7 +428,7 @@ func WriteTo(url string, content string) {
 
 	url = DecodePathInfo(url)
 
-	dstPath := "compiled" + url
+	dstPath := "docs" + url
 	os.MkdirAll(filepath.Dir(dstPath), os.ModePerm)
 	if HTML_EXT != "" {
 		content += HTML_EXT
@@ -510,10 +510,10 @@ func PrapareAssets(theme string, layoutName string, topCtx mustache.Context) str
 }
 
 func CopyResources(base_path string, themeName string) {
-	copyDir("others", "compiled"+base_path)
-	copyDir("media", "compiled"+base_path+"assets/media")
-	copyDir("themes/"+themeName, "compiled"+base_path+"/assets/"+themeName)
-	copyDir("widgets", "compiled"+base_path+"/assets/widgets")
+	copyDir("others", "docs"+base_path)
+	copyDir("media", "docs"+base_path+"assets/media")
+	copyDir("themes/"+themeName, "docs"+base_path+"/assets/"+themeName)
+	copyDir("widgets", "docs"+base_path+"/assets/widgets")
 }
 
 func copyDir(src string, target string) error {

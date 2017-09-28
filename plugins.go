@@ -65,7 +65,7 @@ func (*RssPlugin) Exec(topCtx mustache.Context) {
 		items = append(items, item)
 	}
 	rss := &Rss{"2.0", &RssChannel{title, production_url, pubDate, items}}
-	f, err := os.OpenFile("compiled"+base_path+"rss.xml", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
+	f, err := os.OpenFile("docs"+base_path+"rss.xml", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
 	if err != nil {
 		log.Println("ERR When Create RSS", err)
 		return
@@ -92,7 +92,7 @@ type SitemapPlugin struct{}
 
 func (SitemapPlugin) Exec(topCtx mustache.Context) {
 	base_path := FromCtx(topCtx, "urls.base_path").(string)
-	f, err := os.OpenFile("compiled"+base_path+"sitemap.xml", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
+	f, err := os.OpenFile("docs"+base_path+"sitemap.xml", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
 	if err != nil {
 		log.Println("Error when create sitemap", err)
 		return
@@ -138,7 +138,7 @@ type JekyllOff struct{}
 
 func (*JekyllOff) Exec(topCtx mustache.Context) {
 	base_path := FromCtx(topCtx, "urls.base_path").(string)
-	f, err := os.OpenFile("compiled"+base_path+".nojekyll", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
+	f, err := os.OpenFile("docs"+base_path+".nojekyll", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, os.ModePerm)
 	if err != nil {
 		log.Println("Error when create .nojekyll", err)
 		return

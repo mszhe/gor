@@ -143,7 +143,7 @@ func _http() {
 	log.Println("Listen at ", *http_addr)
 	sm := http.NewServeMux()
 	sm.HandleFunc("/_api/f5", f5)
-	sm.Handle("/", http.FileServer(http.Dir("compiled")))
+	sm.Handle("/", http.FileServer(http.Dir("docs")))
 	log.Println(http.ListenAndServe(*http_addr, sm))
 }
 
