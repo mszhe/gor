@@ -1,0 +1,37 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "QpZvwREsmeW2kljffZbv7QVVfhk=",
+			"path": "github.com/russross/blackfriday",
+			"revision": "4048872b16cc0fc2c5fd9eacf0ed2c2fedaa0c8c",
+			"revisionTime": "2017-07-28T17:53:26Z"
+		},
+		{
+			"checksumSHA1": "LnO5OuOgaLWSD55GKZcsyMcg9J4=",
+			"path": "github.com/wendal/errors",
+			"revision": "f66c77a7882b399795a8987ebf87ef64a427417e",
+			"revisionTime": "2013-02-01T09:32:26Z"
+		},
+		{
+			"checksumSHA1": "oMaC7ZI67By+g5erngIZGqeF0zY=",
+			"path": "github.com/wendal/gor",
+			"revision": "05475ffc0cf1ad012168ad137e8d14f6e08c8a86",
+			"revisionTime": "2017-03-09T03:34:19Z"
+		},
+		{
+			"checksumSHA1": "qKyViVI2nGmXJgXf3BjpJaqWMv0=",
+			"path": "github.com/wendal/goyaml2",
+			"revision": "f9e3fe52bacfaf8f9839f50e3b88cf6c5dee434a",
+			"revisionTime": "2016-12-25T02:01:37Z"
+		},
+		{
+			"checksumSHA1": "P9DxvFLy3+mVcYYGSniIP4Znlkk=",
+			"path": "github.com/wendal/mustache",
+			"revision": "61b948aeb760c1bd8055c2558ee4a380986705a8",
+			"revisionTime": "2013-02-01T09:55:39Z"
+		}
+	],
+	"rootPath": "mszhe.me/gor"
+}
