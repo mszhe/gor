@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 )
 
+var SEPARATOR = string(filepath.Separator)
+
 func CmdInit(path string) {
 	_, err := os.Stat(path)
 	if err == nil || !os.IsNotExist(err) {
@@ -19,10 +21,14 @@ func CmdInit(path string) {
 		log.Fatal(err)
 	}
 
-	root, _ := os.Getwd()
-	SEPARATOR := string(filepath.Separator)
+	root, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
 	z, err := zip.OpenReader(root + SEPARATOR + "gor-content.zip")
-
+	if err != nil {
+		log.Fatal(err)
+	}
 	for _, zf := range z.File {
 		if zf.FileInfo().IsDir() {
 			continue
@@ -45,5 +51,6 @@ func CmdInit(path string) {
 		f.Close()
 		rc.Close()
 	}
+
 	log.Println("Done")
 }
