@@ -34,7 +34,7 @@ const (
 </script>`
 	Comments_disqus = `
 <div id="disqus_thread"></div>
-//<script>
+<script>
 //    var disqus_developer = 1;
 //    var disqus_shortname = '%s'; // required: replace example with your forum shortname
 //    /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -43,9 +43,7 @@ const (
 //        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 //        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 //    })();
-//</script>
-//<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-//<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</script>
 `
 	tpl_google_prettify = `
 <script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
